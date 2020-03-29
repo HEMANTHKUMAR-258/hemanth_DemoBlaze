@@ -14,7 +14,7 @@ public class getexcel {
 	public static String[][] testdata;
 	public static int rownum;
 	public static String filename="src\\test\\resources\\testdata\\Demo.xlsx";
-   public static void getExcel(String sheet){
+   public static void getExcel(String sheet){//method for getexcel
 	   testdata= new String[3][2];
 	  	   File f= new File(filename);
 	  	   for(int rownum=0;rownum<3;rownum++){
@@ -25,7 +25,7 @@ public class getexcel {
 		XSSFRow r=s.getRow(rownum);
 		for(int col=0;col<2;col++){
 		XSSFCell c=r.getCell(col);
-		testdata[rownum][col]=c.getStringCellValue();
+		testdata[rownum][col]=c.getStringCellValue();//storing data
 		System.out.println(testdata[rownum][col]);
 		}
 	    } catch (FileNotFoundException e) {

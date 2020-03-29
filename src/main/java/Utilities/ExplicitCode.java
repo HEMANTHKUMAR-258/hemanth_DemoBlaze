@@ -20,14 +20,7 @@ import Excel_Utilities.getexcel;
 public class ExplicitCode extends getexcel{
 	protected static WebDriver dr;
 	  static int counter=1;
-//	  Logger log;
-//public ExplicitCode(WebDriver dr) {
-//	this.dr=dr;
-////	log= Logger.getLogger("devpinoyLogger");
-//}
-//public void logger1(String msg) {
-//	log.debug(msg);
-//}
+
 public WebElement waitelement(By Locator,int timeout) {
 	WebElement e=null;
 	try {
@@ -36,7 +29,7 @@ public WebElement waitelement(By Locator,int timeout) {
 	System.out.println("element located");
 
 	}catch(Exception e1){
-//		this.logger1("Exception in waitelement");
+
 	  System.out.println("element not found"+e1);	
 	}
 return e;	
@@ -49,7 +42,7 @@ public WebElement clickable(By Locator, int timeout) {
 		System.out.println("element located");
 		return e;
 		}catch(Exception e1){
-//			this.logger1("Exception in the clickable");
+
 		  System.out.println("element not found"+e1);	
 		}
 	return null;
@@ -63,21 +56,21 @@ public void Screenshot() {
 		FileUtils.copyFile(f1, f2);
 	} catch (IOException e) {
 		// TODO Auto-generated catch block
-//		this.logger1("IOException in the screenshot");
 		System.out.println(counter +"failed");
 		e.printStackTrace();
 	}
 	counter ++;
 }
 public static WebDriver launchbrowser(String browser) {
-String s="src\\test\\resources\\drivers\\chromedriver_v79.exe";
-if(browser.contains("chrome")) {
-	System.setProperty("webdriver.chrome.driver", "chromedriver_v79.exe");
-	dr= new ChromeDriver();
-}else if(browser.contains("firefox")) {
-	System.setProperty("webdriver.gecko.driver","geckodriver_v75.exe");
-    dr=new FirefoxDriver();
-}
+	String s="src\\test\\resources\\drivers\\chromedriver_v79.exe";
+	String s1="src\\test\\resources\\drivers\\geckodriver_v73.exe";
+	if(browser.contains("chrome")) {
+		System.setProperty("webdriver.chrome.driver", s);
+		dr= new ChromeDriver();
+	}else if(browser.contains("firefox")) {
+		System.setProperty("webdriver.gecko.driver",s1);
+	    dr=new FirefoxDriver();
+	}
 dr.get("https://demoblaze.com/");
 dr.manage().window().maximize();
 dr.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);

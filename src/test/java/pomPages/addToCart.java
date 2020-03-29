@@ -12,28 +12,31 @@ import Utilities.ExplicitCode;
 public class addToCart {
 	WebDriver dr;
 	ExplicitCode ec;
+	//constructor
 public addToCart(WebDriver dr) {
 	this.dr=dr;
 	ec= new ExplicitCode();
 	
 }
+//xpath for add to cart
 By Productclick =By.xpath("//div[@class='col-lg-9']//div//div[1]//h4//a");
 By ClickAdd=By.xpath("//a[@class='btn btn-success btn-lg']");
 By HomeClick=By.xpath("//ul[@class='navbar-nav ml-auto']//li[1]");
 By ProductTwo=By.xpath("//div[@class='col-lg-9']//div//div[2]//h4//a");
-public void clickProduct() {                    //click the product
+//pom methods for xpath
+public void clickProduct() {
 	WebElement we= ec.clickable(Productclick, 20);
 	we.click();
 }
-public void clickadd() {                 //adding the product
+public void clickadd() {
 	WebElement we= ec.clickable(ClickAdd, 20);
 	we.click();
 }
-public void clickhome() {               //click the Home  
+public void clickhome() {
 	WebElement we= ec.clickable(HomeClick, 20);
 	we.click();
 }
-public void producttwo() {             //click the second product  
+public void producttwo() {
 	WebElement we= ec.clickable(ProductTwo, 20);
 	we.click();
 }
@@ -49,15 +52,16 @@ public void alert()
 		System.out.println("not clicked");
 	}
 	 }
-public void AddtoCart() {   //calling all functions
+//method for addtocart
+public void AddtoCart() {
 	this.clickProduct();
 	this.clickadd();
-	ec.Screenshot();        //calling the screenshot method
+	ec.Screenshot();
 	this.alert();
 	this.clickhome();
 	this.producttwo();
 	ec.Screenshot();
-	this.clickadd();       //calling the screenshot method  
+	this.clickadd();
 	this.alert();
 	this.clickhome();
 }
